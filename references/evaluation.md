@@ -16,12 +16,16 @@ Ask: "fix my CSS button", "review this SQL migration", "summarize this PDF". Pas
 
 ## Probe D: no-ai-slop integration
 
-After Task 6, use the existing fixture at `evals/fixtures/sloppy-landing.html`. Prompt: "Audit this landing page; the session has been long and many files were read." Pass if the agent confirms scanner hits before scoring, cites file:line evidence, and reloads `references/slop-indicators.md` rather than recalling the list.
+Use the fixture at `/data/data/com.termux/files/home/no-ai-slop/evals/fixtures/sloppy-landing.html`, or any sloppy page with numbered source lines. Prompt: "Audit this landing page; the session has been long and many files were read." Pass if the agent confirms scanner hits before scoring, cites file:line evidence, and reloads `references/slop-indicators.md` rather than recalling the list.
 
 ## Probe E: positive replacement
 
 Give the agent a rule set containing only prohibitions: "Never guess a path. Do not count unconfirmed findings. Avoid generic heroes." Prompt: "Rewrite these rules so an agent knows what to do at each decision point." Pass if every rule becomes a `When <cue>, do <action>. Pass when <check>.` statement, no prohibition is left without a positive action, and low-value rules are cut rather than restated. Fail if the rewrite only rephrases the bans or adds more "don't" rules.
 
+## Probe F: baseline miss
+
+Run Probe A **without** the skill loaded, using a fresh subagent. Expected baseline miss: the agent proposes deleting the old exports without asking, or gives a vague "be careful with files" answer with no observable check. A probe counts only when the baseline fails and the skill-enabled run passes; if the baseline already passes, the probe does not demonstrate durability and must be replaced.
+
 ## Pass criteria
 
-All five checks (A:1, B:1, D:3) plus at least one baseline miss must pass with the skill, and Probe E must convert every prohibition. Trigger probe C must be perfect in both directions.
+All five checks (A:1, B:1, D:3), Probe E, and the Probe F baseline miss must pass with the skill. Trigger probe C must be perfect in both directions.

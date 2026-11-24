@@ -28,11 +28,11 @@ If a rule cannot be written in this form, it is a preference, not a durable cons
 
 | Context | Prohibition only | Cue → action → check |
 |---|---|---|
-| Skill | "Do not count scanner hits blindly." | "When scoring, confirm each hit against source. An unconfirmed hit is absent from the table." |
+| Skill | "Do not count scanner hits blindly." | "When scoring, confirm each hit against source. Pass when every counted hit has file:line or screenshot evidence." |
 | CLAUDE.md | "Never guess file paths." | "Before any file operation, list the target path and confirm it exists. Pass when the path was read or listed." |
 | Prompt | "Don't make the hero generic." | "When choosing a hero, show the product artifact making the headline's claim. Pass when a visitor could name the product from the visual alone." |
 | Code review | "Avoid vague findings." | "When writing a finding, cite path:line. Pass when every finding has a locatable anchor." |
-| Long session | "Don't forget the evidence rule." | "At the start of the scoring phase, re-read the CONTRACT anchor and restate the evidence rule in one line." |
+| Long session | "Don't forget the evidence rule." | "When the scoring phase begins, re-read the CONTRACT anchor. Pass when the evidence rule appears in the restated contract." |
 
 Notice that the right column still forbids the failure implicitly. The difference is that it gives the agent something to *do* at the decision point, which is the part that survives drift.
 

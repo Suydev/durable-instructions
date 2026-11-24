@@ -47,7 +47,7 @@ Cut soft preferences and duplicates before adding new rules. Adherence falls as 
 
 ### 7. Positive replacement
 
-Never ship a prohibition alone. Write `When <cue>, do <action>. Pass when <check>.` If-then plans link a situation directly to a response; a bare "don't" leaves the agent with no default behavior once the preamble fades, and negated plans can strengthen the unwanted response. "Do not use a gradient hero" has no default. "When choosing a hero surface, show the product artifact on the page background; pass when a visitor could name the product from the visual alone" has a cue, an action, and a check. If a rule cannot take this form, it is a preference — cut it. See `references/positive-framing.md`.
+Never ship a prohibition alone. Write `When <cue>, do <action>. Pass when <check>.` If-then plans link a situation directly to a response; a bare "don't" leaves the agent with no default behavior once the preamble fades, and negated plans can strengthen the unwanted response. "Do not use a gradient hero" has no default. "When choosing a hero surface, show the product artifact on the page background. Pass when a visitor could name the product from the visual alone" has a cue, an action, and a check. If a rule cannot take this form, it is a preference — cut it. See `references/positive-framing.md`.
 
 ## Workflow
 
