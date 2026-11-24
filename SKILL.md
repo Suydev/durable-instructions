@@ -1,13 +1,13 @@
 ---
 name: durable-instructions
-description: Make instructions survive long agent sessions. Use when an agent keeps forgetting a rule mid-task, drops constraints after context compaction, ignores guidelines written at the top of a prompt, or when writing a skill, system prompt, or CLAUDE.md that must stay in force. Also use when designing agent memory, instruction checklists, or long-context prompts that must be followed rather than merely read.
+description: Make instructions survive long agent sessions. Use when an agent keeps forgetting a rule mid-task, drops constraints after context compaction, ignores guidelines written at the top of a prompt, or when writing a skill, system prompt, or CLAUDE.md that must stay in force. Also use when designing agent memory, instruction checklists, or long-context prompts that must be followed rather than merely read, or when a rule only says what not to do and needs a positive replacement.
 allowed-tools: Read, Grep, Glob
 license: MIT
 ---
 
 # Durable Instructions
 
-Instructions are not remembered; they are re-read or they are gone. This skill turns research on agent memory, context position, and instruction density into six authoring rules that keep a rule in force at the moment it matters.
+Instructions are not remembered; they are re-read or they are gone. This skill turns research on agent memory, context position, instruction density, and if-then planning into seven authoring rules that keep a rule in force at the moment it matters.
 
 ## Contract
 
@@ -17,8 +17,9 @@ Instructions are not remembered; they are re-read or they are gone. This skill t
 4. Restate briefly at section boundaries.
 5. Keep an external plain-text anchor.
 6. Keep the active rule set short.
+7. Pair every prohibition with a positive action and its cue.
 
-## The six rules
+## The seven rules
 
 ### 1. Trigger contract
 
@@ -42,16 +43,21 @@ Keep the authoritative constraints in a plain-text file that can be re-read on d
 
 ### 6. Rule budget
 
-Cut soft preferences and duplicates before adding new rules. Adherence falls as instruction count rises, and the best models still miss roughly a third of a very large instruction set. Six enforced rules beat twenty aspirational ones.
+Cut soft preferences and duplicates before adding new rules. Adherence falls as instruction count rises, and the best models still miss roughly a third of a very large instruction set. Seven enforced rules beat twenty aspirational ones.
+
+### 7. Positive replacement
+
+Never ship a prohibition alone. Write `When <cue>, do <action>. Pass when <check>.` If-then plans link a situation directly to a response; a bare "don't" leaves the agent with no default behavior once the preamble fades, and negated plans can strengthen the unwanted response. "Do not use a gradient hero" has no default. "When choosing a hero surface, show the product artifact on the page background; pass when a visitor could name the product from the visual alone" has a cue, an action, and a check. If a rule cannot take this form, it is a preference — cut it. See `references/positive-framing.md`.
 
 ## Workflow
 
 1. Read the contract above.
 2. Identify the decision points in the work: where the agent will choose, write, or judge.
 3. Select the matching template from `references/authoring-patterns.md`.
-4. Place each rule at its decision point, in verifiable form.
-5. Name the grep-able anchor file if one exists.
-6. Run the probes in `references/evaluation.md` and report pass/fail with evidence.
+4. Convert every prohibition into a cue → action → check pair using `references/positive-framing.md`. If a rule has no positive action, cut it rather than adding another "don't".
+5. Place each rule at its decision point, in verifiable form.
+6. Name the grep-able anchor file if one exists.
+7. Run the probes in `references/evaluation.md` and report pass/fail with evidence.
 
 ## Limits
 
@@ -61,6 +67,7 @@ This skill improves the odds that a rule is followed; it cannot force a model to
 
 - `references/research-evidence.md` — sources, findings, rule mapping.
 - `references/authoring-patterns.md` — before/after templates.
+- `references/positive-framing.md` — turning prohibitions into cue → action → check rules.
 - `references/evaluation.md` — probes and pass criteria.
 - `evals/evals.json` — trigger and behavioral tests.
 - `evals/validate_structure.py` — mechanical structure check.

@@ -1,6 +1,6 @@
 # Research evidence
 
-Funding statement: sources were collected with tinyfish search on 2026-11-24. Twenty-eight sources are listed below. Numbers are reported as the sources report them; they are not replications.
+Funding statement: sources were collected with tinyfish search on 2026-11-24. Thirty-three sources are listed below. Numbers are reported as the sources report them; they are not replications.
 
 ## Headline findings
 
@@ -53,6 +53,16 @@ Funding statement: sources were collected with tinyfish search on 2026-11-24. Tw
 | Skill authoring best practices — docs.anthropic.com/claude/docs/agents-and-tools/agent-skills/best-practices | Concision wins; metadata loads first; every token competes with context | 1, 6 |
 | Equipping agents for the real world with Agent Skills — anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills | Skills are a first-class progressive-disclosure mechanism | 1 |
 | skill-development SKILL.md — github.com/anthropics/claude-code/blob/main/plugins/plugin-dev/skills/skill-development/SKILL.md | Reference implementation for skill authoring | 1 |
+
+## Positive framing and if-then planning
+
+| Source | Finding | Rule |
+|---|---|---|
+| Gollwitzer, "Implementation Intentions: Strong Effects of Simple Plans" — doi.apa.org/doi/10.1037/0003-066x.54.7.493 | If-then plans specify when, where and how; strong effects on goal attainment | 7 |
+| Wieber et al., "Promoting the translation of intentions into action" — pmc.ncbi.nlm.nih.gov/articles/PMC4500900/ | Situational cues become highly accessible and link directly to the planned response | 7 |
+| Bieleke et al., "If-then planning" — tandfonline.com/doi/full/10.1080/10463283.2020.1808936 | Review of automatic action control by if-then plans | 7 |
+| Adriaanse et al., "Planning what not to eat" — pubmed.ncbi.nlm.nih.gov/21177875/ | Negating an unwanted habit in an implementation plan can have ironic effects | 7 |
+| "Implementation and recognition of novel negatively instructed stimulus-response rules" — pmc.ncbi.nlm.nih.gov/articles/PMC12664855/ | Negative instructions work better with an explicit alternative action and advance instruction-type information | 7 |
 
 ## Caveats
 

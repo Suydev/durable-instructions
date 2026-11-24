@@ -73,6 +73,24 @@ CONTRACT
 - reload docs/api-contract.md when adding endpoints
 ```
 
+## Prompt or skill rule: prohibition to positive replacement
+
+Before:
+
+```text
+Don't make the hero generic. Avoid fake stats and never use a gradient background.
+```
+
+After:
+
+```text
+When choosing a hero, show the product artifact making the headline's claim.
+Pass when a visitor could name the product from the visual alone.
+When adding a number, give its conditions and source. Pass when the conditions are on screen.
+```
+
+Each "don't" became a cue, an action, and a check. Pass criteria live beside the decision, so they survive the loss of the preamble. See `positive-framing.md` for the full pattern.
+
 ## What to cut
 
 - "Be careful", "be thorough", "follow best practices" — no observable check.

@@ -21,7 +21,7 @@ else:
     if low.startswith("to "):
         errors.append("description must be third person")
 
-for heading in ("## Contract", "## The six rules", "## Workflow", "## Limits", "## Files"):
+for heading in ("## Contract", "## The seven rules", "## Workflow", "## Limits", "## Files"):
     if heading not in text:
         errors.append(f"missing heading: {heading}")
 
@@ -32,6 +32,7 @@ for rule in (
     "### 4. Spaced restatement",
     "### 5. Grep-able anchor",
     "### 6. Rule budget",
+    "### 7. Positive replacement",
 ):
     if rule not in text:
         errors.append(f"missing rule: {rule}")
@@ -42,7 +43,7 @@ words = len(text.split())
 if words >= 1500:
     errors.append(f"SKILL.md over budget: {words} words")
 
-for name in ("research-evidence.md", "authoring-patterns.md", "evaluation.md"):
+for name in ("research-evidence.md", "authoring-patterns.md", "positive-framing.md", "evaluation.md"):
     if not (ROOT / "references" / name).exists():
         errors.append(f"missing reference: {name}")
 
@@ -56,8 +57,8 @@ else:
     except (KeyError, TypeError) as exc:
         errors.append(f"evals.json missing evals list: {exc}")
     else:
-        if eval_count != 8:
-            errors.append(f"evals.json expected 8 evals, found {eval_count}")
+        if eval_count != 10:
+            errors.append(f"evals.json expected 10 evals, found {eval_count}")
 
 if errors:
     print("FAIL")
